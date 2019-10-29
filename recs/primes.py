@@ -77,6 +77,13 @@ def num_divisors(n, prime_list):
         prod *= (pfs[1] + 1)
     return prod
 
+def divisors(n):
+    divs = []
+    for i in range(1, int(n / 2) + 1):
+        if n % i == 0:
+            divs.append(i)
+    return divs
+
 def is_prime(n):
     if n <= 3:
         return n > 1
