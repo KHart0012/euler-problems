@@ -21,7 +21,7 @@ num_dict = {
     19 : 'nineteen',
     20 : 'twenty',
     30 : 'thirty',
-    40 : 'fourty',
+    40 : 'forty',
     50 : 'fifty',
     60 : 'sixty',
     70 : 'seventy',
@@ -39,7 +39,9 @@ def num_builder(num):
         return num_dict[(num + (10 - (num % 10))) - 10] + num_dict[num % 10]
     elif length == 3:
         if int(str(num)[1]) * 10 == 10:
-            return num_dict[int(str(num)[0])] + 'hundredand' + num_dict[num  - (int(str(num)[0]) * 100)]
+            return num_dict[int(str(num)[0])] + 'hundredand' + num_dict[num - (int(str(num)[0]) * 100)]
+        elif num % 100 == 0:
+            return num_dict[int(str(num)[0])] + 'hundred'
         return num_dict[int(str(num)[0])] + 'hundredand' + num_dict[int(str(num)[1]) * 10] + num_dict[num % 10]
     else:
         return "onethousand"
