@@ -1,4 +1,6 @@
 import math
+from math import sqrt
+from itertools import count, islice
 
 def prime_sieve(n):
     # Generate the sieve
@@ -107,5 +109,20 @@ def nth_prime(n):
             count += 1
         num += 1
     return num - 1
+
+def brute_force_prime_gen(n):
+    prime_nums = []
+    
+    num = 1
+    while num < n:
+        if is_prime(num):
+            prime_nums.append(num)
+        num += 1
+    
+    return prime_nums
+
+def slow_is_prime(n):
+    return n > 1 and all(n % i for i in islice(count(2), int(sqrt(n)-1)))
+
 
 #print(num_divisors(228))
